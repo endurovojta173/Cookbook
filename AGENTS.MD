@@ -24,7 +24,9 @@ Před dokončením každé změny ověř:
 1. `npx tsc --noEmit` projde bez chyb.
 2. `npm run test` projde bez chyb (nová logika v `src/utils/` musí mít unit testy).
 3. `npm run build` projde bez chyb a bez Node.js polyfill varování.
-4. UI funguje na mobilním viewportu (`375px` šířka) bez horizontálního scrollu.
+4. Mobilní responsivita (`375×667` a `390×844`):
+   - Landing page (`/#/`) se celá vejde do `100dvh` **bez vertikálního scrollu** (`scrollHeight <= innerHeight`).
+   - Žádná obrazovka nemá horizontální overflow (`scrollWidth <= innerWidth`).
 
 ---
 
@@ -61,9 +63,12 @@ Před dokončením každé změny ověř:
    - HTML z `marked` sanitizuj přes `dompurify` před vložením do DOM, aby aplikace byla imunní vůči XSS.
 4. **Výkon & Bundle:**
    - `exportDocx.ts` (závislost `docx` + `file-saver`) **vždy načítej dynamicky** (`await import('../utils/exportDocx')`) až při kliknutí na export, aby nezvětšoval počáteční bundle pro mobil.
-5. **Stylování & Mobilní UX:**
+5. **Stylování & Mobile-First UX (kuchyně na mobilu):**
    - Používej čisté CSS (CSS proměnné / CSS Modules) nebo Tailwind CSS. Nepřidávej těžké UI knihovny (MUI, Ant Design, Chakra).
-   - Interaktivní prvky musí mít dotykovou plochu alespoň `44×44 px`, základní písmo receptu alespoň `16 px` s pohodlným řádkováním (`line-height >= 1.6`).
+   - **Landing page (`/#/`) bez scrollu:** Hlavní stránka musí vyplnit přesně `100dvh` bez vertikálního scrollu na mobilu na výšku (`360×640` až `430×932`) i na desktopu — kompaktní hlavička, **2×2 mřížka kategorií** roztažená přes `flex: 1; min-height: 0` a kompaktní spodní lišta s exporty celé kuchařky (PDF / DOCX). Vertikální scroll povol pouze jako fallback na extrémně nízkých displejích (`@media (max-height: 540px)`, např. mobil na šířku).
+   - **Safe-area & dotykové ovládání:** `viewport-fit=cover` v `index.html` a respektuj `env(safe-area-inset-bottom)` na spodních prvcích. Interaktivní prvky musí mít dotykovou plochu alespoň `44×44 px`.
+   - **Vstupy a filtry na mobilu:** `<input>` musí mít `font-size >= 16px` (zabrání iOS Safari auto-zoomu při focusu). Tagové čipy ve `FilterBar` se na mobilu zobrazují v jednom horizontálně scrollovatelném pásu (`flex-wrap: nowrap; overflow-x: auto`), aby nezabíraly polovinu obrazovky.
+   - **Čitelnost receptu:** Základní písmo receptu alespoň `16 px` s řádkováním `line-height >= 1.6`; na malém mobilu minimalizuj boční okraje (edge-to-edge článek) pro maximální využití šířky displeje.
 
 ---
 

@@ -7,8 +7,9 @@ Statická webová aplikace (SPA) pro správu a prohlížení receptů psaných v
 ---
 
 ## Funkce
-- **Rozcestník kategorií:** Přehledné rozdělení receptů na `Snídaně`, `Obědy`, `Večeře` a `Ostatní`.
-- **Chytré filtrování:** Přepínač `Vše / Zdravé / Nezdravé`, filtrování podle tagů a české fulltextové vyhledávání bez ohledu na diakritiku. Aktivní filtry se ukládají do URL.
+- **Mobilní rozcestník bez scrollu:** Hlavní stránka je navržená přesně na výšku obrazovky (`100dvh`) jako 2×2 mřížka kategorií (`Snídaně`, `Obědy`, `Večeře`, `Ostatní`) + rychlý export celé kuchařky jednou rukou.
+- **Chytré filtrování:** Přepínač `Vše / Zdravé / Nezdravé`, kompaktní pás tagů a české fulltextové vyhledávání bez ohledu na diakritiku. Aktivní filtry se ukládají do URL.
+- **Pohodlné čtení při vaření:** Plně responzivní detail receptu s velkým písmem, dotykovými prvky (`≥ 44 px`) a podporou safe-area okrajů na mobilech.
 - **Recepty v Markdownu:** Každý recept je samostatný `.md` soubor s YAML hlavičkou.
 - **Export do PDF a DOCX:** Stažení jednotlivého receptu i celé kuchařky přímo v prohlížeči.
 - **Automatický deploy:** Publikace na GitHub Pages přes GitHub Actions.

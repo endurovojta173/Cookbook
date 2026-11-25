@@ -14,6 +14,13 @@ export const CATEGORY_LABELS: Record<RecipeCategory, string> = {
   ostatni: 'Ostatní',
 };
 
+export const CATEGORY_ICONS: Record<RecipeCategory, string> = {
+  snidane: '🥐',
+  obed: '🍲',
+  vecere: '🥗',
+  ostatni: '🍯',
+};
+
 export const CATEGORY_DESCRIPTIONS: Record<RecipeCategory, string> = {
   snidane: 'Rychlý i vydatný start do nového dne',
   obed: 'Hlavní jídla, česká klasika i lehké talíře',
