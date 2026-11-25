@@ -1,0 +1,2 @@
+# Do tohoto adresáře ukládej komprimované fotky receptů (např. svickova-na-smetane.webp).
+# V YAML hlavičce receptu pak použij relativní cestu: image: images/svickova-na-smetane.webp

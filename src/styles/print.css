@@ -1,0 +1,77 @@
+@page {
+  margin: 1.5cm;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .site-main {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .recipe-article {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .print-cookbook-list {
+    display: block;
+  }
+
+  .print-recipe-section {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .print-recipe-section:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+    color: #000000 !important;
+  }
+
+  img,
+  blockquote,
+  li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .recipe-article__image {
+    max-height: 240px;
+  }
+
+  .badge {
+    border: 1px solid #999999;
+    background: transparent !important;
+    color: #000000 !important;
+  }
+
+  .recipe-markdown blockquote {
+    background: transparent;
+    border-left-color: #666666;
+    color: #333333;
+  }
+}
